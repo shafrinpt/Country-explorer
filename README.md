@@ -1,16 +1,81 @@
+
+Country Explorer Dashboard
+
 # React + Vite
+#setup
+------
+npm install
+npm run dev
+#APIs 
+----
+-REST Countries API 
+- OpenWeatherMap API
+## Features 
+-----------
+Country listing with flag, name, capital, region, and population
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pagination (10 countries per page)
 
-Currently, two official plugins are available:
+Search countries by name
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Filter countries by region
 
-## React Compiler
+Country details page with:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-Flag
 
-## Expanding the ESLint configuration
+-Capital
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-Region & sub-region
+
+-Population
+
+-Languages
+
+-Currencies
+
+-Time zones
+
+Weather information for capital city
+
+Add / Remove countries from favorites
+
+Favorites stored using LocalStorage
+
+Separate Favorites page
+
+Bonus Features
+--------------
+
+Dark / Light mode toggle (persistent)
+
+Debounced search input
+
+API response caching (LocalStorage)
+
+Skeleton loaders while loading data
+
+Responsive UI (mobile & desktop)
+
+Favorites count badge in navbar
+
+Toast popup message on removing favorites
+
+Tech Stack
+----------
+React (Hooks)
+
+React Router DOM
+
+Context API
+
+Axios
+
+Vite
+
+HTML
+
+CSS
+
+LocalStorage
+ 
