@@ -14,22 +14,30 @@ const CountryList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  const fetchCountries = async () => {
-    try {
-      const res = await countriesApi.get(
-        "/all?fields=name,flags,capital,region,population,cca3"
-      );
-      setCountries(res.data);
-    } catch (error) {
-      console.error("Failed to fetch countries", error);
-    } finally {
+    const cached = localStorage.getItem("countries");
+
+    if (cached) {
+      setCountries(JSON.parse(cached));
       setLoading(false);
+      return;
     }
-  };
 
-  fetchCountries();
-}, []);
+    const fetchCountries = async () => {
+      try {
+        const res = await countriesApi.get(
+          "/all?fields=name,flags,capital,region,population,cca3"
+        );
+        setCountries(res.data);
+        localStorage.setItem("countries", JSON.stringify(res.data));
+      } catch (error) {
+        console.error("Failed to fetch countries", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchCountries();
+  }, []);
 
   const filtered = countries.filter((c) => {
     const matchName = c.name.common
@@ -42,11 +50,20 @@ const CountryList = () => {
   const start = (page - 1) * ITEMS_PER_PAGE;
   const visible = filtered.slice(start, start + ITEMS_PER_PAGE);
 
-  if (loading) return <p className="center">Loading...</p>;
+  /* 🔹 Skeleton Loader */
+  if (loading) {
+    return (
+      <div className="container grid">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <div key={i} className="skeleton"></div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="container">
-      <SearchBar value={search} onChange={setSearch} />
+      <SearchBar onChange={setSearch} />
       <Filters selected={region} onChange={setRegion} />
 
       <div className="grid">

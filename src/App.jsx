@@ -1,20 +1,40 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CountryList from "./pages/CountryList";
 import CountryDetails from "./pages/CountryDetails";
 import Favorites from "./pages/Favorites";
-import { FavoritesProvider, FavoritesContext } from "./context/FavoritesContext";
+import {
+  FavoritesProvider,
+  FavoritesContext,
+} from "./context/FavoritesContext";
 import "./index.css";
 
-/* 🔹 Navbar separated to use Context */
+/* ================= NAVBAR ================= */
 const Navbar = () => {
   const { favorites } = useContext(FavoritesContext);
+
+  // 🌙 Load saved theme on app start
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+      document.body.classList.add("dark");
+    }
+  }, []);
+
+  // 🌗 Toggle dark/light mode
+  const toggleTheme = () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+      "theme",
+      document.body.classList.contains("dark") ? "dark" : "light"
+    );
+  };
 
   return (
     <nav className="navbar">
       <h2>🌍 Country Explorer</h2>
 
-      <div>
+      <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
         <Link to="/">Home</Link>
 
         <Link to="/favorites">
@@ -32,11 +52,24 @@ const Navbar = () => {
             {favorites.length}
           </span>
         </Link>
+
+        <button
+          onClick={toggleTheme}
+          style={{
+            padding: "6px 10px",
+            borderRadius: "4px",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          🌓
+        </button>
       </div>
     </nav>
   );
 };
 
+/* ================= APP ================= */
 function App() {
   return (
     <FavoritesProvider>

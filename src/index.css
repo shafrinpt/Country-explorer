@@ -9,6 +9,52 @@ a {
   text-decoration: none;
 }
 
+/* ===== Skeleton Loader ===== */
+.skeleton {
+  height: 180px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    #ddd 25%,
+    #eee 37%,
+    #ddd 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+:root {
+  --bg: #c9cbce;
+  --card: #ffffff;
+  --nav: #222427;
+  --text: #000;
+}
+
+.dark {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --nav: #000;
+  --text: #fff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card,
+.weather {
+  background: var(--card);
+}
+
+.navbar {
+  background: var(--nav);
+}
+
 /* ===== Navbar ===== */
 .navbar {
   display: flex;
