@@ -1,4 +1,4 @@
-/* ===== Global ===== */
+/* Global  */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -9,7 +9,7 @@ a {
   text-decoration: none;
 }
 
-/* ===== Skeleton Loader ===== */
+/* Skeleton Loader  */
 .skeleton {
   height: 180px;
   border-radius: 8px;
@@ -55,7 +55,7 @@ body {
   background: var(--nav);
 }
 
-/* ===== Navbar ===== */
+/*  Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -80,12 +80,12 @@ body {
   font-size: 16px;
 }
 
-/* ===== Container ===== */
+/*  Container  */
 .container {
   padding: 20px;
 }
 
-/* ===== Search Bar (CENTERED) ===== */
+/*  Search Bar (CENTERED)  */
 .search {
   width: 100%;
   max-width: 400px;
@@ -117,7 +117,7 @@ body {
   color: white;
 }
 
-/* ===== Grid & Cards ===== */
+/*  Grid & Cards  */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -144,7 +144,7 @@ body {
   border-radius: 4px;
 }
 
-/* ===== Pagination ===== */
+/*  Pagination  */
 .pagination {
   text-align: center;
   margin: 25px 0;
@@ -165,7 +165,7 @@ body {
   cursor: not-allowed;
 }
 
-/* ===== Details Page ===== */
+/*  Details Page  */
 .details {
   padding: 30px;
   max-width: 900px;
@@ -190,14 +190,14 @@ body {
   cursor: pointer;
 }
 
-/* ===== Weather Card ===== */
+/* Weather Card */
 .weather {
   margin-top: 20px;
   background: white;
   padding: 15px;
   border-radius: 6px;
 }
-/* ===== Search with Icon ===== */
+/* Search with Icon */
 .search-wrapper {
   position: relative;
   max-width: 400px;
@@ -221,7 +221,7 @@ body {
   font-size: 14px;
 }
 
-/* ===== Center Text ===== */
+/* Center Text  */
 .center {
   text-align: center;
 }
@@ -235,9 +235,9 @@ body {
   border-radius: 6px;
   font-size: 14px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  z-index: 9999;
-  animation: fadeInOut 2s ease;
+  z-index: 9999; /* 🔥 CRITICAL */
 }
+
 
 @keyframes fadeInOut {
   0% { opacity: 0; transform: translateY(10px); }

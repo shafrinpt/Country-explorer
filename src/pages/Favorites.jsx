@@ -7,6 +7,7 @@ const Favorites = () => {
   const [toastMsg, setToastMsg] = useState("");
 
   const handleRemove = (code) => {
+    console.log("Remove clicked"); // 🔍 debug
     removeFavorite(code);
     setToastMsg("❌ Removed from favorites");
   };
@@ -43,6 +44,7 @@ const Favorites = () => {
         ))}
       </div>
 
+      {/* 🔔 Toast */}
       {toastMsg && (
         <Toast
           message={toastMsg}
